@@ -26,7 +26,7 @@ utsignaler = []
 
 
 for k in range(1,6):
-  signal = 1/2+2/((2*k-1)*np.pi)*np.sin(2*np.pi*(2*k-1)/T_0*t)
+  signal = 2/((2*k-1)*np.pi)*np.sin(2*np.pi*(2*k-1)/T_0*t)
   frekvens = round(2*np.pi*(2*k-1)/T_0/(2*np.pi))
 
   _, h = scipy.signal.freqresp(system, w=frekvens*2*np.pi)
@@ -35,8 +35,8 @@ for k in range(1,6):
 
   fas = round(float(np.angle(h, deg=True)),2)
 
-  utsignal="0.5 + "+ str(round(float(2/((2*k-1)*np.pi)*amplitud),4))+" * sin("+str(round(2*np.pi*(2*k-1)/T_0))+"t + "+str(round(float(fas),1))+"*)"
-  insignal = "0.5 + "+str(round(2/((2*k-1)*np.pi),4))+" * sin("+str(round(2*np.pi*(2*k-1)/T_0))+"t)"
+  utsignal=str(round(float(2/((2*k-1)*np.pi)*amplitud),4))+" * sin("+str(round(2*np.pi*(2*k-1)/T_0))+"t + "+str(round(float(fas),1))+"*)"
+  insignal = str(round(2/((2*k-1)*np.pi),4))+" * sin("+str(round(2*np.pi*(2*k-1)/T_0))+"t)"
   
   insignaler.append(insignal)
   frekvenser.append(frekvens)
